@@ -49,7 +49,7 @@
                 /* If multiple parents build classname like foo\bar. */
                 var selected = "";
                 $(parent_selector).each(function() {
-                    var selectedClass = $("option:selected", this).val();
+                    var selectedClass = $("option:selected", this).attr('class') ? $("option:selected", this).attr('class') : $("option:selected", this).val();
                     if (selectedClass) {
                         if (selected.length > 0) {
                             if (window.Zepto) {
@@ -72,7 +72,7 @@
                 } else {
                     first = $(parent_selector).first();
                 }
-                var selected_first = $("option:selected", first).val();
+                var selected_first = $("option:selected", first).attr('class') ? $("option:selected", first).attr('class') : $("option:selected", first).val();
 
                 $("option", child).each(function() {
                     /* Remove unneeded items but save the default value. */
